@@ -5,12 +5,16 @@ from generalDicts import *
 from changeFunctions import *
 import math
 
+
+
 # File contains neccessary framework to process distance data from the arduino
 # and translate that into pitch control.
 
+# Replace this with whatever port you have the ultrasonic sensor routed to
+portCode = '/dev/cu.usbmodem14301'
   
 # Framework for reading HC-SR04 data from http://www.toptechboy.com/arduino/python-with-ardiuno-3-example-using-ultrasonic-sensor/
-arduinoSerialData = serial.Serial('/dev/cu.usbmodem14301',9600)
+arduinoSerialData = serial.Serial(portCode,9600)
 def getDist():
     if (arduinoSerialData.inWaiting()>0):
         myData = arduinoSerialData.readline()
